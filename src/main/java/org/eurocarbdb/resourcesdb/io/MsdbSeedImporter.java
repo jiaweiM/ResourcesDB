@@ -187,11 +187,11 @@ public class MsdbSeedImporter extends ResourcesDbObject {
                         System.out.println("will not enter into db open chain residue with anhydro modification: " + ms.getName());
                     } else {
                         System.out.println("ok to insert into db: " + ms.getName());
-                        if(writeToDb) {
-                            ms = HibernateAccess.storeOrUpdateMonosaccharide(ms, this.getTemplateContainer());
-                            System.out.println("dbId: " + ms.getDbId());
-                            //System.out.println("  ms: " + ms.toString());
-                        }
+//                        if(writeToDb) {
+//                            ms = HibernateAccess.storeOrUpdateMonosaccharide(ms, this.getTemplateContainer());
+//                            System.out.println("dbId: " + ms.getDbId());
+//                            //System.out.println("  ms: " + ms.toString());
+//                        }
                     }
                 }
             } catch(Exception ex) {
@@ -311,41 +311,41 @@ public class MsdbSeedImporter extends ResourcesDbObject {
             ms = new Monosaccharide(msNamescheme, msName);
             ms.buildName();
             System.out.println("ms: " + ms.toString());
-            Monosaccharide dbMs = HibernateAccess.getMonosaccharideFromDB(ms.getName());
-            if(dbMs != null) {
-                //*** monosaccharide is already present in database, add synonym if appropriate: ***
-                if(dbMs.addSynonym(msAlias)) {
-                    HibernateAccess.storeOrUpdateMonosaccharideSynonym(msAlias);
-                    HibernateAccess.updateMonosaccharide(dbMs);
-                    System.out.println("added alias " + msAlias + " to ms id " + dbMs.getDbId());
-                } else {
-                    System.out.println("alias " + msAlias + " was not added to ms id " + dbMs.getDbId());
-                }
-            } else {
-                //*** monosaccharide is not yet present in database, enter it if appropriate: ***
-                MonosaccharideDataBuilder.buildDerivativeData(ms, this.getTemplateContainer());
-                ms.setFuzzy(MonosaccharideValidation.checkFuzziness(ms));
-                if(ms.isFuzzy()) {
-                    System.out.println("Monosaccharide is fuzzy - will not enter into db.");
-                } else {
-                    ms.buildRepresentations();
-                    ms.addSynonym(msAlias);
-                    if(ms.getRingStart() > 0 && ms.getSubstitutionsByPosition(ms.getRingStart()).size() > 0) {
-                        System.out.println("will not enter into db because of substitution at anomeric center: " + ms.getName());
-                    } else if(ms.getRingStart() > 0 && ms.hasCoreModification(CoreModificationTemplate.DEOXY, ms.getRingStart())) {
-                        System.out.println("will not enter into db because of deoxy modification at anomeric center: " + ms.getName());
-                    } else if(ms.getRingtype().equals(Ringtype.OPEN) && ms.hasCoreModification(CoreModificationTemplate.ANHYDRO)) {
-                        System.out.println("will not enter into db open chain residue with anhydro modification: " + ms.getName());
-                    } else {
-                        System.out.println("ok to insert into db: " + ms.getName());
-                        if(true) {
-                            ms = HibernateAccess.storeOrUpdateMonosaccharide(ms, this.getTemplateContainer());
-                            System.out.println("dbId: " + ms.getDbId());
-                            System.out.println("  ms: " + ms.toString());
-                        }
-                    }
-                }
-            }
+//            Monosaccharide dbMs = HibernateAccess.getMonosaccharideFromDB(ms.getName());
+//            if(dbMs != null) {
+//                //*** monosaccharide is already present in database, add synonym if appropriate: ***
+//                if(dbMs.addSynonym(msAlias)) {
+//                    HibernateAccess.storeOrUpdateMonosaccharideSynonym(msAlias);
+//                    HibernateAccess.updateMonosaccharide(dbMs);
+//                    System.out.println("added alias " + msAlias + " to ms id " + dbMs.getDbId());
+//                } else {
+//                    System.out.println("alias " + msAlias + " was not added to ms id " + dbMs.getDbId());
+//                }
+//            } else {
+//                //*** monosaccharide is not yet present in database, enter it if appropriate: ***
+//                MonosaccharideDataBuilder.buildDerivativeData(ms, this.getTemplateContainer());
+//                ms.setFuzzy(MonosaccharideValidation.checkFuzziness(ms));
+//                if(ms.isFuzzy()) {
+//                    System.out.println("Monosaccharide is fuzzy - will not enter into db.");
+//                } else {
+//                    ms.buildRepresentations();
+//                    ms.addSynonym(msAlias);
+//                    if(ms.getRingStart() > 0 && ms.getSubstitutionsByPosition(ms.getRingStart()).size() > 0) {
+//                        System.out.println("will not enter into db because of substitution at anomeric center: " + ms.getName());
+//                    } else if(ms.getRingStart() > 0 && ms.hasCoreModification(CoreModificationTemplate.DEOXY, ms.getRingStart())) {
+//                        System.out.println("will not enter into db because of deoxy modification at anomeric center: " + ms.getName());
+//                    } else if(ms.getRingtype().equals(Ringtype.OPEN) && ms.hasCoreModification(CoreModificationTemplate.ANHYDRO)) {
+//                        System.out.println("will not enter into db open chain residue with anhydro modification: " + ms.getName());
+//                    } else {
+//                        System.out.println("ok to insert into db: " + ms.getName());
+//                        if(true) {
+//                            ms = HibernateAccess.storeOrUpdateMonosaccharide(ms, this.getTemplateContainer());
+//                            System.out.println("dbId: " + ms.getDbId());
+//                            System.out.println("  ms: " + ms.toString());
+//                        }
+//                    }
+//                }
+//            }
         } catch(Exception ex) {
             System.out.flush();
             System.err.println("Exception: " + ex);

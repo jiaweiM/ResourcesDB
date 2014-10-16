@@ -32,7 +32,7 @@ import java.util.Set;
 //import org.eurocarbdb.resourcesdb.util.HibernateUtil;
 import org.eurocarbdb.resourcesdb.Config;
 import org.eurocarbdb.resourcesdb.ResourcesDbException;
-import org.eurocarbdb.resourcesdb.io.HibernateAccess;
+//import org.eurocarbdb.resourcesdb.io.HibernateAccess;
 import org.eurocarbdb.resourcesdb.util.NumberUtils;
 import org.eurocarbdb.resourcesdb.util.Utils;
 //import org.hibernate.Session;
@@ -637,28 +637,28 @@ public enum Periodic {
         return(iso);
     }
     
-    public static void setDataFromDB() throws ResourcesDbException {
-        ArrayList<Periodic> elemList = null;
-        try {
-            //if(Class.forName(HibernateAccess.class.getName()) != null) {
-                elemList = HibernateAccess.getElementListFromDB();
-            //}
-        } catch (Throwable e) {
-            System.err.println(e);
-        }
-        if(elemList == null) {
-            throw new ResourcesDbException("Cannot set element list from database.");
-        }
-        HashMap<String, Periodic> bySymbolMap = new HashMap<String, Periodic>();
-        HashMap<Integer, Periodic> byNumberMap = new HashMap<Integer, Periodic>();
-        for(Periodic elem : elemList) {
-            bySymbolMap.put(elem.getSymbol().toUpperCase(), elem);
-            byNumberMap.put(new Integer(elem.getPeriodicNumber()), elem);
-        }
-        /*Periodic.setElementsList(elemList);
-        Periodic.setElementsBySymbolMap(bySymbolMap);
-        Periodic.setElementsByNumberMap(byNumberMap);*/
-    }
+//    public static void setDataFromDB() throws ResourcesDbException {
+//        ArrayList<Periodic> elemList = null;
+//        try {
+//            //if(Class.forName(HibernateAccess.class.getName()) != null) {
+//                elemList = HibernateAccess.getElementListFromDB();
+//            //}
+//        } catch (Throwable e) {
+//            System.err.println(e);
+//        }
+//        if(elemList == null) {
+//            throw new ResourcesDbException("Cannot set element list from database.");
+//        }
+//        HashMap<String, Periodic> bySymbolMap = new HashMap<String, Periodic>();
+//        HashMap<Integer, Periodic> byNumberMap = new HashMap<Integer, Periodic>();
+//        for(Periodic elem : elemList) {
+//            bySymbolMap.put(elem.getSymbol().toUpperCase(), elem);
+//            byNumberMap.put(new Integer(elem.getPeriodicNumber()), elem);
+//        }
+//        /*Periodic.setElementsList(elemList);
+//        Periodic.setElementsBySymbolMap(bySymbolMap);
+//        Periodic.setElementsByNumberMap(byNumberMap);*/
+//    }
     
     //*****************************************************************************
     //*** other methods: **********************************************************
