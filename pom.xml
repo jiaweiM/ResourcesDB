@@ -6,8 +6,8 @@
 	<description>EuroCarbDB, a framework for carbohydrate bioinformatics.</description>
 
 	<organization>
-		<name>glytoucan.org</name>
-		<url>http://projects.glytoucan.org</url>
+		<name>EuroCarbDB</name>
+		<url>https://github.com/glycoinfo/eurocarb</url>
 	</organization>
 
 	<groupId>org.eurocarbdb</groupId>
@@ -17,7 +17,7 @@
 	<ciManagement>
 		<notifiers>
 			<notifier>
-				<address>aoki@glytoucan.org</address>
+				<address>paoki@soka.ac.jp</address>
 				<type>mail</type>
 			</notifier>
 		</notifiers>
