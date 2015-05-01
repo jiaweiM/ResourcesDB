@@ -24,7 +24,7 @@
 	</ciManagement>
 
 	<scm>
-		<connection>scm:git:https://github.com/glycoinfo/eurocarb</connection>
+		<connection>scm:git:https://github.com/glycoinfo/ResourceDB.git</connection>
 		<url>https://github.com/glycoinfo/ResourceDB.git</url>
 	</scm>
 
@@ -61,6 +61,7 @@
 				<version>2.10.1</version>
 				<configuration>
 					<show>public</show>
+					<docencoding>UTF-8</docencoding>
 				</configuration>
 			</plugin>
 
