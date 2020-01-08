@@ -22,6 +22,7 @@ package org.eurocarbdb.resourcesdb.nonmonosaccharide;
 import org.eurocarbdb.resourcesdb.GlycanNamescheme;
 
 public class AglyconAlias {
+
     private String name = null;
     private GlycanNamescheme namescheme = null;
     private AglyconTemplate primaryTemplate = null;
@@ -31,79 +32,81 @@ public class AglyconAlias {
     //*****************************************************************************
     //*** getters/setters: ********************************************************
     //*****************************************************************************
-    
+
     /**
      * @return the name
      */
     public String getName() {
         return name;
     }
-    
+
     /**
      * @param name the name to set
      */
     public void setName(String name) {
         this.name = name;
     }
-    
+
     /**
      * @return the namescheme
      */
     public GlycanNamescheme getNamescheme() {
         return namescheme;
     }
+
     /**
      * @param namescheme the namescheme to set
      */
     public void setNamescheme(GlycanNamescheme namescheme) {
         this.namescheme = namescheme;
     }
-    
+
     public String getNameschemeStr() {
-        if(this.getNamescheme() == null) {
-            return(null);
+        if (this.getNamescheme() == null) {
+            return (null);
         }
-        return(this.getNamescheme().name());
+        return (this.getNamescheme().name());
     }
-    
+
     public void setNameschemeStr(String name) {
-        if(name == null) {
+        if (name == null) {
             this.setNamescheme(null);
         } else {
             this.setNamescheme(GlycanNamescheme.forName(name));
         }
     }
-    
+
     /**
      * @return the primaryTemplate
      */
     public AglyconTemplate getPrimaryTemplate() {
         return primaryTemplate;
     }
-    
+
     /**
      * @param primaryTemplate the primaryTemplate to set
      */
     public void setPrimaryTemplate(AglyconTemplate primaryTemplate) {
         this.primaryTemplate = primaryTemplate;
     }
-    
+
     /**
      * Check, if this substituent name is the primary name for the namescheme it is associated with
+     *
      * @return true, if this is a primary name; false, if this is an alias name
      */
     public boolean isPrimaryName() {
-        return(this.isPrimary);
+        return (this.isPrimary);
     }
-    
+
     public boolean getIsPrimary() {
-        return(this.isPrimaryName());
+        return (this.isPrimaryName());
     }
-    
+
     public void setIsPrimary(boolean primary) {
         this.isPrimary = primary;
     }
-    
+
     public int getDbId() {
         return dbId;
     }
@@ -115,13 +118,13 @@ public class AglyconAlias {
     //*****************************************************************************
     //*** other methods: **********************************************************
     //*****************************************************************************
-    
+
     public String toString() {
         String outStr = this.getNamescheme().getNameStr() + "::" + this.getName();
-        if(this.isPrimaryName()) {
+        if (this.isPrimaryName()) {
             outStr += " (primary)";
         }
-        return(outStr);
+        return (outStr);
     }
-    
+
 }

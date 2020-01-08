@@ -20,45 +20,46 @@
 package org.eurocarbdb.resourcesdb.fragment;
 
 public enum PersubstitutionType {
+
     NONE("none", "NONE", 0.0, 0.0),
     PM("permethylation", "PM", 0.0, 0.0),
     PAc("peracetylation", "PAc", 0.0, 0.0),
     PDM("perdeuteromethylation", "PDM", 0.0, 0.0),
     PDAc("perdeuteroacetylation", "PDAc", 0.0, 0.0);
-    
-    
+
+
     private String name = null;
     private String symbol = null;
     private double monoMassIncr = 0.0;
     private double avgMassIncr = 0.0;
-    
+
     //*****************************************************************************
     //*** constructors: ***********************************************************
     //*****************************************************************************
-    
+
     private PersubstitutionType(String name, String symbol, double monoIncr, double avgIncr) {
         this.setName(name);
         this.setSymbol(symbol);
         this.setMonoMassIncr(monoIncr);
         this.setAvgMassIncr(avgIncr);
     }
-    
+
     //*****************************************************************************
     //*** getters/setters: ********************************************************
     //*****************************************************************************
-    
+
     public String getName() {
         return name;
     }
-    
+
     private void setName(String name) {
         this.name = name;
     }
-    
+
     public String getSymbol() {
         return symbol;
     }
-    
+
     private void setSymbol(String symbol) {
         this.symbol = symbol;
     }
@@ -78,5 +79,5 @@ public enum PersubstitutionType {
     private void setMonoMassIncr(double monoMassIncr) {
         this.monoMassIncr = monoMassIncr;
     }
-    
+
 }
